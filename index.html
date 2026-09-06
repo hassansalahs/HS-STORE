@@ -19,63 +19,40 @@
   }
   *{ margin:0; padding:0; box-sizing:border-box; }
   html{ scroll-behavior:smooth; }
-  body{
-    background:var(--bg);
-    color:var(--text);
-    font-family:'Cairo', sans-serif;
-    line-height:1.6;
-  }
+  body{ background:var(--bg); color:var(--text); font-family:'Cairo', sans-serif; line-height:1.6; }
   .num{ font-family:'Space Grotesk', sans-serif; }
-
   a{ color:inherit; text-decoration:none; }
   .wrap{ max-width:1080px; margin:0 auto; padding:0 24px; }
 
-  /* Header */
   header{
-    border-bottom:1px solid var(--line);
-    position:sticky; top:0; background:rgba(20,21,26,0.92);
-    backdrop-filter:blur(6px); z-index:10;
+    border-bottom:1px solid var(--line); position:sticky; top:0;
+    background:rgba(20,21,26,0.92); backdrop-filter:blur(6px); z-index:10;
   }
-  header .wrap{
-    display:flex; align-items:center; justify-content:space-between;
-    height:68px;
-  }
-  .brand{ font-weight:800; font-size:1.15rem; letter-spacing:0.2px; }
+  header .wrap{ display:flex; align-items:center; justify-content:space-between; height:68px; }
+  .brand{ font-weight:800; font-size:1.15rem; }
   .brand span{ color:var(--accent); }
   nav ul{ display:flex; gap:28px; list-style:none; }
   nav a{ color:var(--muted); font-size:0.95rem; transition:color .2s; }
   nav a:hover{ color:var(--text); }
 
-  /* Hero */
   .hero{ padding:76px 0 56px; border-bottom:1px solid var(--line); }
   .hero .wrap{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:40px; align-items:center; }
-  .hero h1{
-    font-size:2.5rem; font-weight:800; line-height:1.25; margin-bottom:18px;
-  }
+  .hero h1{ font-size:2.5rem; font-weight:800; line-height:1.25; margin-bottom:18px; white-space:pre-line; }
   .hero p{ color:var(--muted); font-size:1.05rem; max-width:440px; margin-bottom:28px; }
   .hero-badges{ display:flex; gap:10px; flex-wrap:wrap; }
-  .badge{
-    border:1px solid var(--line); border-radius:4px;
-    padding:8px 14px; font-size:0.85rem; color:var(--muted);
-  }
+  .badge{ border:1px solid var(--line); border-radius:4px; padding:8px 14px; font-size:0.85rem; color:var(--muted); }
   .badge b{ color:var(--text); font-weight:600; }
-
   .device-art{ display:flex; justify-content:center; }
   .device-art svg{ width:100%; max-width:220px; }
 
-  /* Section title */
-  .section-head{
-    display:flex; align-items:baseline; justify-content:space-between;
-    margin:64px 0 28px;
-  }
+  .section-head{ display:flex; align-items:baseline; justify-content:space-between; margin:64px 0 28px; }
   .section-head h2{ font-size:1.5rem; font-weight:700; }
   .section-head .count{ color:var(--muted); font-size:0.9rem; }
 
-  /* Product grid */
   .grid{
     display:grid; grid-template-columns:repeat(3, 1fr); gap:1px;
-    border:1px solid var(--line); border-radius:6px; overflow:hidden;
-    margin-bottom:70px;
+    border:1px solid var(--line); border-radius:6px; overflow:hidden; margin-bottom:70px;
+    min-height:80px;
   }
   .card{
     background:var(--surface); padding:26px 22px; border:1px solid var(--line);
@@ -96,72 +73,23 @@
   .price{ font-family:'Space Grotesk', sans-serif; font-weight:600; color:var(--accent); font-size:1.1rem; }
   .buy{ font-size:0.85rem; color:var(--muted); }
   .buy:hover{ color:var(--text); }
+  .card img.product-img{ width:100%; height:120px; object-fit:cover; border-radius:4px; margin-bottom:4px; }
+  .empty-msg{ grid-column:1/-1; padding:40px; text-align:center; color:var(--muted); background:var(--surface); }
 
-  /* Contact strip */
   .contact{
     border:1px solid var(--line); border-radius:6px; padding:34px;
     display:flex; align-items:center; justify-content:space-between;
-    margin-bottom:70px; flex-wrap:wrap; gap:20px;
+    margin-bottom:50px; flex-wrap:wrap; gap:20px;
   }
   .contact h3{ font-size:1.2rem; font-weight:700; margin-bottom:6px; }
   .contact p{ color:var(--muted); font-size:0.92rem; }
-  .cta{
-    background:var(--accent); color:#191008; font-weight:700;
-    padding:12px 26px; border-radius:4px; font-size:0.95rem;
-  }
-
-  /* Add product panel */
-  .add-btn{
-    border:1px solid var(--line); border-radius:4px; background:transparent;
-    color:var(--text); font-family:'Cairo', sans-serif; font-size:0.85rem;
-    padding:8px 16px; cursor:pointer; transition:border-color .2s;
-  }
-  .add-btn:hover{ border-color:var(--accent); color:var(--accent); }
-
-  .panel{
-    display:none; border:1px solid var(--line); border-radius:6px;
-    background:var(--surface); padding:24px; margin-bottom:28px;
-  }
-  .panel.open{ display:block; }
-  .panel h3{ font-size:1rem; font-weight:700; margin-bottom:16px; }
-  .panel form{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-  .panel .full{ grid-column:1 / -1; }
-  .panel label{ display:block; font-size:0.8rem; color:var(--muted); margin-bottom:6px; }
-  .panel input{
-    width:100%; background:var(--bg); border:1px solid var(--line); border-radius:4px;
-    padding:10px 12px; color:var(--text); font-family:'Cairo', sans-serif; font-size:0.9rem;
-  }
-  .panel input:focus{ outline:none; border-color:var(--accent); }
-  .panel .actions{ display:flex; gap:10px; margin-top:4px; }
-  .panel .save{
-    background:var(--accent); color:#191008; font-weight:700; border:none;
-    border-radius:4px; padding:10px 20px; font-family:'Cairo', sans-serif;
-    font-size:0.9rem; cursor:pointer;
-  }
-  .panel .cancel{
-    background:transparent; color:var(--muted); border:1px solid var(--line);
-    border-radius:4px; padding:10px 20px; font-family:'Cairo', sans-serif;
-    font-size:0.9rem; cursor:pointer;
-  }
-  .panel .hint{ color:var(--muted); font-size:0.78rem; margin-top:2px; }
-
-  .card .remove{
-    position:absolute; left:14px; top:14px; background:none; border:none;
-    color:var(--muted); font-size:1.1rem; cursor:pointer; line-height:1;
-    display:none;
-  }
-  .card{ position:relative; }
-  .card.custom .remove{ display:block; }
-  .card.custom .remove:hover{ color:var(--accent); }
-  .card img.product-img{
-    width:100%; height:120px; object-fit:cover; border-radius:4px; margin-bottom:4px;
-  }
+  .cta{ background:var(--accent); color:#191008; font-weight:700; padding:12px 26px; border-radius:4px; font-size:0.95rem; }
 
   footer{
-    border-top:1px solid var(--line); padding:26px 0 40px;
-    color:var(--muted); font-size:0.85rem;
+    border-top:1px solid var(--line); padding:26px 0 40px; color:var(--muted); font-size:0.85rem;
     display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
   }
+  footer a{ color:var(--muted); }
 
   @media (max-width:760px){
     .hero .wrap{ grid-template-columns:1fr; }
@@ -180,7 +108,7 @@
 
 <header>
   <div class="wrap">
-    <div class="brand num">HS <span>STORE</span></div>
+    <div class="brand num" id="brand-name">HS <span>STORE</span></div>
     <nav>
       <ul>
         <li><a href="#products">المنتجات</a></li>
@@ -193,8 +121,9 @@
 <section class="hero">
   <div class="wrap">
     <div>
-      <h1>موبايلات وإكسسواراتها،<br>مرتبة زي ما بتحبها.</h1>
-      <p>كل قطعة عندنا مفحوصة ومختارة بعناية — من الشاحن اليومي إلى الإكسسوار اللي بتدوّر عليه من زمان.</p>
+      <h1 id="hero-title">موبايلات وإكسسواراتها،
+مرتبة زي ما بتحبها.</h1>
+      <p id="hero-sub">كل قطعة عندنا مفحوصة ومختارة بعناية.</p>
       <div class="hero-badges">
         <div class="badge"><b>ضمان</b> سنة كاملة</div>
         <div class="badge"><b>توصيل</b> لكل المحافظات</div>
@@ -215,101 +144,11 @@
 <div class="wrap">
   <div class="section-head" id="products">
     <h2>المنتجات</h2>
-    <div style="display:flex; align-items:center; gap:16px;">
-      <span class="count num" id="product-count">6 منتجات</span>
-      <button class="add-btn" id="toggle-panel">+ أضف منتج</button>
-    </div>
+    <span class="count num" id="product-count">...</span>
   </div>
 
-  <div class="panel" id="add-panel">
-    <h3>منتج جديد</h3>
-    <form id="product-form">
-      <div class="full">
-        <label>اسم المنتج</label>
-        <input type="text" id="p-name" required placeholder="مثال: سماعة بلوتوث">
-      </div>
-      <div>
-        <label>المواصفات</label>
-        <input type="text" id="p-spec" placeholder="مثال: بطارية 20 ساعة">
-      </div>
-      <div>
-        <label>السعر</label>
-        <input type="text" id="p-price" required placeholder="مثال: 25">
-      </div>
-      <div class="full">
-        <label>رابط صورة (اختياري)</label>
-        <input type="url" id="p-image" placeholder="https://...">
-        <p class="hint">إذا ما حطيت رابط صورة، بتظهر أيقونة افتراضية.</p>
-      </div>
-      <div class="full actions">
-        <button type="submit" class="save">حفظ المنتج</button>
-        <button type="button" class="cancel" id="cancel-panel">إلغاء</button>
-      </div>
-    </form>
-  </div>
-
-  <div class="grid">
-
-    <div class="card">
-      <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
-      <h3>سماعات لاسلكية X20</h3>
-      <p class="spec">بلوتوث 5.3 — بطارية تدوم 30 ساعة</p>
-      <div class="price-row">
-        <span class="price num">45 $</span>
-        <a class="buy" href="#contact">اطلب الآن ←</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2"/><line x1="11" y1="18" x2="13" y2="18"/></svg></div>
-      <h3>شاحن سريع 65 واط</h3>
-      <p class="spec">يدعم PD — منفذ Type-C</p>
-      <div class="price-row">
-        <span class="price num">18 $</span>
-        <a class="buy" href="#contact">اطلب الآن ←</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="5" y="3" width="14" height="18" rx="3"/></svg></div>
-      <h3>غطاء حماية درعي</h3>
-      <p class="spec">متوافق مع آيفون وسامسونج</p>
-      <div class="price-row">
-        <span class="price num">12 $</span>
-        <a class="buy" href="#contact">اطلب الآن ←</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="6" y="4" width="12" height="16" rx="2"/><line x1="9" y1="9" x2="15" y2="9"/></svg></div>
-      <h3>باور بانك 20000</h3>
-      <p class="spec">شحن سريع بمخرجين</p>
-      <div class="price-row">
-        <span class="price num">35 $</span>
-        <a class="buy" href="#contact">اطلب الآن ←</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg></div>
-      <h3>حامل هاتف للسيارة</h3>
-      <p class="spec">مغناطيسي — تثبيت على لوحة القيادة</p>
-      <div class="price-row">
-        <span class="price num">15 $</span>
-        <a class="buy" href="#contact">اطلب الآن ←</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 12h16"/><circle cx="6" cy="12" r="2"/><circle cx="18" cy="12" r="2"/></svg></div>
-      <h3>كابل شحن مضفر 1.2م</h3>
-      <p class="spec">USB-C وLightning</p>
-      <div class="price-row">
-        <span class="price num">10 $</span>
-        <a class="buy" href="#contact">اطلب الآن ←</a>
-      </div>
-    </div>
-
+  <div class="grid" id="products-grid">
+    <div class="empty-msg">جارِ تحميل المنتجات...</div>
   </div>
 
   <div class="contact" id="contact">
@@ -317,89 +156,93 @@
       <h3>عندك سؤال عن منتج؟</h3>
       <p>راسلنا وبنرد عليك بأسرع وقت.</p>
     </div>
-    <a class="cta" href="https://wa.me/9647713020578">تواصل عبر واتساب</a>
+    <a class="cta" id="whatsapp-btn" href="#">تواصل عبر واتساب</a>
   </div>
 </div>
 
 <footer>
   <div class="wrap" style="display:flex; justify-content:space-between; width:100%;">
-    <span class="num">© 2026 HS STORE</span>
-    <span>بغداد، العراق</span>
+    <span class="num" id="footer-name">© 2026 HS STORE</span>
+    <span id="footer-location">بغداد، العراق</span>
   </div>
 </footer>
 
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
 <script>
-  const grid = document.querySelector('.grid');
-  const panel = document.getElementById('add-panel');
-  const toggleBtn = document.getElementById('toggle-panel');
-  const cancelBtn = document.getElementById('cancel-panel');
-  const form = document.getElementById('product-form');
+  // ====== عدّل هذه القيم بمعلومات مشروعك في Firebase ======
+  const firebaseConfig = {
+    apiKey: "AIzaSyCB17mPjwJVTcRb8C3P4veVymTt8EwXO84",
+    authDomain: "hs-store-40a0d.firebaseapp.com",
+    projectId: "hs-store-40a0d",
+    storageBucket: "hs-store-40a0d.firebasestorage.app",
+    messagingSenderId: "1041262430506",
+    appId: "1:1041262430506:web:d575998c3a7d9c7e0bf653"
+  };
+  // ==========================================================
+
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+
+  const grid = document.getElementById('products-grid');
   const countEl = document.getElementById('product-count');
-  const STORAGE_KEY = 'hs_store_custom_products';
 
-  toggleBtn.addEventListener('click', () => panel.classList.toggle('open'));
-  cancelBtn.addEventListener('click', () => { panel.classList.remove('open'); form.reset(); });
+  function defaultIconSVG(){
+    return `<div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="9" cy="10" r="1.5"/><path d="M4 16l4-4 4 4 4-6 4 6"/></svg></div>`;
+  }
 
-  function getSaved(){
-    try{ return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
-    catch(e){ return []; }
-  }
-  function setSaved(list){
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
-  }
-  function updateCount(){
-    const total = grid.querySelectorAll('.card').length;
-    countEl.textContent = total + ' منتجات';
-  }
-  function buildCard(product){
-    const card = document.createElement('div');
-    card.className = 'card custom';
-    const imgHtml = product.image
-      ? `<img class="product-img" src="${product.image}" alt="${product.name}">`
-      : `<div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="9" cy="10" r="1.5"/><path d="M4 16l4-4 4 4 4-6 4 6"/></svg></div>`;
-    card.innerHTML = `
-      <button class="remove" title="حذف">×</button>
-      ${imgHtml}
-      <h3>${product.name}</h3>
-      <p class="spec">${product.spec || ''}</p>
-      <div class="price-row">
-        <span class="price num">${product.price} $</span>
-        <a class="buy" href="#contact">اطلب الآن ←</a>
-      </div>
-    `;
-    card.querySelector('.remove').addEventListener('click', () => {
-      const list = getSaved().filter(p => p.id !== product.id);
-      setSaved(list);
-      card.remove();
-      updateCount();
+  function renderProducts(docs){
+    grid.innerHTML = '';
+    if(docs.length === 0){
+      grid.innerHTML = '<div class="empty-msg">ما في منتجات مضافة بعد.</div>';
+      countEl.textContent = '0 منتجات';
+      return;
+    }
+    docs.forEach(doc => {
+      const p = doc.data();
+      const card = document.createElement('div');
+      card.className = 'card';
+      const media = p.image
+        ? `<img class="product-img" src="${p.image}" alt="${p.name}">`
+        : defaultIconSVG();
+      card.innerHTML = `
+        ${media}
+        <h3>${p.name || ''}</h3>
+        <p class="spec">${p.spec || ''}</p>
+        <div class="price-row">
+          <span class="price num">${p.price || ''} $</span>
+          <a class="buy" href="#contact">اطلب الآن ←</a>
+        </div>
+      `;
+      grid.appendChild(card);
     });
-    return card;
-  }
-  function renderSaved(){
-    getSaved().forEach(p => grid.appendChild(buildCard(p)));
-    updateCount();
+    countEl.textContent = docs.length + ' منتجات';
   }
 
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const product = {
-      id: Date.now().toString(),
-      name: document.getElementById('p-name').value.trim(),
-      spec: document.getElementById('p-spec').value.trim(),
-      price: document.getElementById('p-price').value.trim(),
-      image: document.getElementById('p-image').value.trim()
-    };
-    if(!product.name || !product.price) return;
-    const list = getSaved();
-    list.push(product);
-    setSaved(list);
-    grid.appendChild(buildCard(product));
-    updateCount();
-    form.reset();
-    panel.classList.remove('open');
+  function applySettings(s){
+    if(!s) return;
+    if(s.storeName){
+      document.title = s.storeName + ' | موبايلات وإكسسوارات';
+      document.getElementById('footer-name').textContent = '© 2026 ' + s.storeName;
+    }
+    if(s.heroTitle) document.getElementById('hero-title').textContent = s.heroTitle;
+    if(s.heroSub) document.getElementById('hero-sub').textContent = s.heroSub;
+    if(s.location) document.getElementById('footer-location').textContent = s.location;
+    if(s.whatsapp) document.getElementById('whatsapp-btn').href = 'https://wa.me/' + s.whatsapp;
+  }
+
+  // Live updates: any change made from the admin panel reflects instantly for visitors
+  db.collection('products').orderBy('createdAt', 'desc').onSnapshot(snap => {
+    renderProducts(snap.docs);
+  }, err => {
+    grid.innerHTML = '<div class="empty-msg">تعذر تحميل المنتجات. تأكد من إعداد Firebase.</div>';
+    console.error(err);
   });
 
-  renderSaved();
+  db.collection('settings').doc('site').onSnapshot(doc => {
+    if(doc.exists) applySettings(doc.data());
+  });
 </script>
 </body>
 </html>

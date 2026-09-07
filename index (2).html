@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HS STORE | موبايلات وإكسسوارات</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #14151A;
+    --surface: #1D1F26;
+    --line: #2C2E36;
+    --text: #EDEDEA;
+    --muted: #8B8D97;
+    --accent: #FF7A30;
+    --accent-dim: #4A3324;
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{ background:var(--bg); color:var(--text); font-family:'Cairo', sans-serif; line-height:1.6; }
+  .num{ font-family:'Space Grotesk', sans-serif; }
+  a{ color:inherit; text-decoration:none; }
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 24px; }
+
+  header{
+    border-bottom:1px solid var(--line); position:sticky; top:0;
+    background:rgba(20,21,26,0.92); backdrop-filter:blur(6px); z-index:10;
+  }
+  header .wrap{ display:flex; align-items:center; justify-content:space-between; height:68px; }
+  .brand{ font-weight:800; font-size:1.15rem; }
+  .brand span{ color:var(--accent); }
+  nav ul{ display:flex; gap:28px; list-style:none; }
+  nav a{ color:var(--muted); font-size:0.95rem; transition:color .2s; }
+  nav a:hover{ color:var(--text); }
+
+  .hero{ padding:76px 0 56px; border-bottom:1px solid var(--line); }
+  .hero .wrap{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:40px; align-items:center; }
+  .hero h1{ font-size:2.5rem; font-weight:800; line-height:1.25; margin-bottom:18px; white-space:pre-line; }
+  .hero p{ color:var(--muted); font-size:1.05rem; max-width:440px; margin-bottom:28px; }
+  .hero-badges{ display:flex; gap:10px; flex-wrap:wrap; }
+  .badge{ border:1px solid var(--line); border-radius:4px; padding:8px 14px; font-size:0.85rem; color:var(--muted); }
+  .badge b{ color:var(--text); font-weight:600; }
+  .device-art{ display:flex; justify-content:center; }
+  .device-art svg{ width:100%; max-width:220px; }
+
+  .section-head{ display:flex; align-items:baseline; justify-content:space-between; margin:64px 0 28px; }
+  .section-head h2{ font-size:1.5rem; font-weight:700; }
+  .section-head .count{ color:var(--muted); font-size:0.9rem; }
+
+  .grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:1px;
+    border:1px solid var(--line); border-radius:6px; overflow:hidden; margin-bottom:70px;
+    min-height:80px;
+  }
+  .card{
+    background:var(--surface); padding:26px 22px; border:1px solid var(--line);
+    display:flex; flex-direction:column; gap:10px; transition:background .2s;
+  }
+  .card:hover{ background:#22242C; }
+  .card .icon{
+    width:44px; height:44px; border-radius:4px; background:var(--accent-dim);
+    display:flex; align-items:center; justify-content:center; margin-bottom:6px;
+  }
+  .card .icon svg{ width:22px; height:22px; stroke:var(--accent); }
+  .card h3{ font-size:1.02rem; font-weight:700; }
+  .card .spec{ color:var(--muted); font-size:0.85rem; }
+  .card .price-row{
+    margin-top:auto; padding-top:14px; border-top:1px solid var(--line);
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .price{ font-family:'Space Grotesk', sans-serif; font-weight:600; color:var(--accent); font-size:1.1rem; }
+  .buy{ font-size:0.85rem; color:var(--muted); }
+  .buy:hover{ color:var(--text); }
+  .card img.product-img{ width:100%; height:200px; object-fit:cover; border-radius:4px; margin-bottom:4px; }
+  .empty-msg{ grid-column:1/-1; padding:40px; text-align:center; color:var(--muted); background:var(--surface); }
+
+  .contact{
+    border:1px solid var(--line); border-radius:6px; padding:34px;
+    display:flex; align-items:center; justify-content:space-between;
+    margin-bottom:50px; flex-wrap:wrap; gap:20px;
+  }
+  .contact h3{ font-size:1.2rem; font-weight:700; margin-bottom:6px; }
+  .contact p{ color:var(--muted); font-size:0.92rem; }
+  .cta{ background:var(--accent); color:#191008; font-weight:700; padding:12px 26px; border-radius:4px; font-size:0.95rem; }
+
+  footer{
+    border-top:1px solid var(--line); padding:26px 0 40px; color:var(--muted); font-size:0.85rem;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+  }
+  footer a{ color:var(--muted); }
+
+  @media (max-width:760px){
+    .hero .wrap{ grid-template-columns:1fr; }
+    .device-art{ order:-1; }
+    .hero h1{ font-size:1.9rem; }
+    .grid{ grid-template-columns:1fr 1fr; }
+    nav ul{ gap:16px; }
+  }
+  @media (max-width:480px){
+    .grid{ grid-template-columns:1fr; }
+    .hero h1{ font-size:1.6rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand num" id="brand-name">HS <span>STORE</span></div>
+    <nav>
+      <ul>
+        <li><a href="#products">المنتجات</a></li>
+        <li><a href="#contact">تواصل معنا</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1 id="hero-title">موبايلات وإكسسواراتها،
+مرتبة زي ما بتحبها.</h1>
+      <p id="hero-sub">كل قطعة عندنا مفحوصة ومختارة بعناية.</p>
+      <div class="hero-badges">
+        <div class="badge"><b>ضمان</b> سنة كاملة</div>
+        <div class="badge"><b>توصيل</b> لكل المحافظات</div>
+        <div class="badge"><b>الدفع</b> عند الاستلام</div>
+      </div>
+    </div>
+    <div class="device-art">
+      <svg viewBox="0 0 120 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="6" y="6" width="108" height="228" rx="16" stroke="#3A3D48" stroke-width="2"/>
+        <rect x="16" y="24" width="88" height="176" rx="4" stroke="#FF7A30" stroke-width="1.5" opacity="0.6"/>
+        <circle cx="60" cy="215" r="7" stroke="#3A3D48" stroke-width="2"/>
+        <line x1="46" y1="14" x2="74" y2="14" stroke="#3A3D48" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="section-head" id="products">
+    <h2>المنتجات</h2>
+    <span class="count num" id="product-count">...</span>
+  </div>
+
+  <div class="grid" id="products-grid">
+    <div class="empty-msg">جارِ تحميل المنتجات...</div>
+  </div>
+
+  <div class="contact" id="contact">
+    <div>
+      <h3>عندك سؤال عن منتج؟</h3>
+      <p>راسلنا وبنرد عليك بأسرع وقت.</p>
+    </div>
+    <a class="cta" id="whatsapp-btn" href="#">تواصل عبر واتساب</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; width:100%;">
+    <span class="num" id="footer-name">© 2026 HS STORE</span>
+    <span id="footer-location">بغداد، العراق</span>
+  </div>
+</footer>
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+<script>
+  // ====== عدّل هذه القيم بمعلومات مشروعك في Firebase ======
+  const firebaseConfig = {
+    apiKey: "AIzaSyCB17mPjwJVTcRb8C3P4veVymTt8EwXO84",
+    authDomain: "hs-store-40a0d.firebaseapp.com",
+    projectId: "hs-store-40a0d",
+    storageBucket: "hs-store-40a0d.firebasestorage.app",
+    messagingSenderId: "1041262430506",
+    appId: "1:1041262430506:web:d575998c3a7d9c7e0bf653"
+  };
+  // ==========================================================
+
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+
+  const grid = document.getElementById('products-grid');
+  const countEl = document.getElementById('product-count');
+
+  function defaultIconSVG(){
+    return `<div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="9" cy="10" r="1.5"/><path d="M4 16l4-4 4 4 4-6 4 6"/></svg></div>`;
+  }
+
+  function renderProducts(docs){
+    grid.innerHTML = '';
+    if(docs.length === 0){
+      grid.innerHTML = '<div class="empty-msg">ما في منتجات مضافة بعد.</div>';
+      countEl.textContent = '0 منتجات';
+      return;
+    }
+    docs.forEach(doc => {
+      const p = doc.data();
+      const card = document.createElement('div');
+      card.className = 'card';
+      const media = p.image
+        ? `<img class="product-img" src="${p.image}" alt="${p.name}">`
+        : defaultIconSVG();
+      card.innerHTML = `
+        ${media}
+        <h3>${p.name || ''}</h3>
+        <p class="spec">${p.spec || ''}</p>
+        <div class="price-row">
+          <span class="price num">${p.price || ''} د.ع</span>
+          <a class="buy" href="#contact">اطلب الآن ←</a>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+    countEl.textContent = docs.length + ' منتجات';
+  }
+
+  function applySettings(s){
+    if(!s) return;
+    if(s.storeName){
+      document.title = s.storeName + ' | موبايلات وإكسسوارات';
+      document.getElementById('footer-name').textContent = '© 2026 ' + s.storeName;
+    }
+    if(s.heroTitle) document.getElementById('hero-title').textContent = s.heroTitle;
+    if(s.heroSub) document.getElementById('hero-sub').textContent = s.heroSub;
+    if(s.location) document.getElementById('footer-location').textContent = s.location;
+    if(s.whatsapp) document.getElementById('whatsapp-btn').href = 'https://wa.me/' + s.whatsapp;
+  }
+
+  // Live updates: any change made from the admin panel reflects instantly for visitors
+  db.collection('products').orderBy('createdAt', 'desc').onSnapshot(snap => {
+    renderProducts(snap.docs);
+  }, err => {
+    grid.innerHTML = '<div class="empty-msg">تعذر تحميل المنتجات. تأكد من إعداد Firebase.</div>';
+    console.error(err);
+  });
+
+  db.collection('settings').doc('site').onSnapshot(doc => {
+    if(doc.exists) applySettings(doc.data());
+  });
+</script>
+</body>
+</html>
